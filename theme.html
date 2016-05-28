@@ -728,32 +728,6 @@
     })
     </script>
 
-    {block:IfEnableKeyboardNavigation}
-    {block:Pagination}
-    <script>
-          {block:PreviousPage}Mousetrap.bind('left', function() { window.location.href="{PreviousPage}"; });{/block:PreviousPage}
-          {block:NextPage}Mousetrap.bind('right', function() { window.location.href="{NextPage}"; });{/block:NextPage}
-    </script>
-    {/block:Pagination}
-    {block:PermalinkPagination}
-    <script>
-          {block:PreviousPost}Mousetrap.bind('left', function() { window.location.href="{PreviousPost}"; });{/block:PreviousPost}
-          {block:NextPost}Mousetrap.bind('right', function() { window.location.href="{NextPost}"; });{/block:NextPost}
-    </script>
-    {/block:PermalinkPagination}
-    <script>
-        Mousetrap.bind('h', function() { window.location.href="/"; });
-        Mousetrap.bind('r', function() { window.location.href="/random"; });
-    </script>
-    {/block:IfEnableKeyboardNavigation}
-
-    {block:IfShowLatestTweets}
-    {block:IfTwitterUsername}
-    <!-- Load Twitter Widget -->
-    <script type="text/javascript" src="/tweets.js"></script>
-    {/block:IfTwitterUsername}
-    {/block:IfShowLatestTweets}
-
     {block:IfShowInstagramPhotos}
     {block:IfInstagramAccessToken}
     {block:IfInstagramUserID}
