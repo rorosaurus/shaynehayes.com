@@ -517,76 +517,14 @@
 
                         <div class="permalink">
                             <div class="footer for_permalink">
-                                {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date} {block:NoteCount}<span class="slash"> / </span> <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
-                                {block:RebloggedFrom}
-                                <span class="slash"> / </span>
-                                <a href="{ReblogParentURL}">{lang:Via} {ReblogParentName}</a>
-                                {block:RebloggedFromReblog}
-                                <span class="slash"> / </span>
-                                <a href="{ReblogRootURL}">{lang:Originally from ReblogRootName}</a>
-                                {/block:RebloggedFromReblog}
-                                {/block:RebloggedFrom}
-                                {block:ContentSource}
-                                <span class="slash"> / </span>
-                                <a href="{SourceURL}" class="source_url">{lang:Source} {SourceTitle}</a>
-                                {/block:ContentSource}
-                                {block:IfShowLikeReblogButtons}
-                                <div class="like-reblog-buttons">
-                                    <div class="social-share-widget-enclosure">
-                                        <a href="#" class="icon-share" id="social-menu" data-toggle="dropdown" trigger="hover click"></a>
-                                        <ul class="social-share-widget dropdown-menu" role="menu" aria-labelledby="social-menu">
-                                            <li><a role="menuitem" target="_blank" class="facebook" href="http://facebook.com/sharer.php?u={ShortURL}"><span class="icon-facebook"></span><span class="social-link">Share on Facebook</span></a></li>
-                                            <li><a role="menuitem" target="_blank" class="twitter" href="https://twitter.com/intent/tweet?url={ShortURL}"><span class="icon-twitter"></span><span class="social-link">Share on Twitter</span></a></li>
-                                            <li><a role="menuitem" target="_blank" class="pinterest" href="https://pinterest.com/pin/create/button/?url={ShortURL}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}"><span class="icon-pinterest"></span><span class="social-link">Share on Pinterest</span></a></li>
-                                            <li><a role="menuitem" target="_blank" class="google-plus" href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url={ShortURL}"><span class="icon-googleplus"></span><span class="social-link">Share on Google+</span></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="like-button">
-                                        {LikeButton color="grey" size="15"}
-                                    </div>
-                                    <div class="reblog-button">
-                                        {ReblogButton color="grey" size="15"}
-                                    </div>
-                                </div>
-                                {/block:IfShowLikeReblogButtons}
+                                {block:Date}<a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{/block:Date}
                             </div>
                         </div>
-
-
-                        <div class="footer {block:ContentSource}with_source_url{/block:ContentSource}" style="
-                             display:none;
-                             {block:HasTags}display:block;{/block:HasTags}
-                        {block:ContentSource}display:block;{/block:ContentSource}
-                        {block:IndexPage}{block:IfGridLayout}display:none;{/block:IfGridLayout}{/block:IndexPage}
-                        ">
-                        {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}</div>{/block:HasTags}
-                    </div>
-
 
                     {block:PostNotes}<div class="notecontainer">{PostNotes}</div>{/block:PostNotes}
                 </div>
                 {/block:Posts}
 
-                {block:PermalinkPage}
-                {block:IfEnableDisqusComments}
-                {block:IfDisqusShortname}
-                <div id="disqus_thread"></div>
-                <script type="text/javascript">
-                    var disqus_shortname = '{text:Disqus Shortname}';
-                    var disqus_url = '{Permalink}';
-                    (function() {
-                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                {/block:IfDisqusShortname}
-                {/block:IfEnableDisqusComments}
-                {block:IfEnableFacebookComments}
-                <div class="fb-comments" data-href="{Permalink}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
-                {/block:IfEnableFacebookComments}
-                {/block:PermalinkPage}
 
                 {block:SearchPage}
                 {block:SearchResults}
