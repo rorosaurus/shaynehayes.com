@@ -520,27 +520,14 @@
                                 {block:Date}<a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{/block:Date}
                             </div>
                         </div>
-
-
-                        <div class="footer {block:ContentSource}with_source_url{/block:ContentSource}" style="
-                             display:none;
-                             {block:HasTags}display:block;{/block:HasTags}
-                        {block:ContentSource}display:block;{/block:ContentSource}
-                        {block:IndexPage}{block:IfGridLayout}display:none;{/block:IfGridLayout}{/block:IndexPage}
-                        ">
-                        {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}</div>{/block:HasTags}
                     </div>
+                    {/block:Posts}
 
-
-                    {block:PostNotes}<div class="notecontainer">{PostNotes}</div>{/block:PostNotes}
-                </div>
-                {/block:Posts}
-
-                {block:PermalinkPage}
-                {block:IfEnableDisqusComments}
-                {block:IfDisqusShortname}
-                <div id="disqus_thread"></div>
-                <script type="text/javascript">
+                    {block:PermalinkPage}
+                    {block:IfEnableDisqusComments}
+                    {block:IfDisqusShortname}
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
                     var disqus_shortname = '{text:Disqus Shortname}';
                     var disqus_url = '{Permalink}';
                     (function() {
@@ -548,115 +535,115 @@
                         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                     })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                {/block:IfDisqusShortname}
-                {/block:IfEnableDisqusComments}
-                {block:IfEnableFacebookComments}
-                <div class="fb-comments" data-href="{Permalink}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
-                {/block:IfEnableFacebookComments}
-                {/block:PermalinkPage}
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    {/block:IfDisqusShortname}
+                    {/block:IfEnableDisqusComments}
+                    {block:IfEnableFacebookComments}
+                    <div class="fb-comments" data-href="{Permalink}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+                    {/block:IfEnableFacebookComments}
+                    {/block:PermalinkPage}
 
-                {block:SearchPage}
-                {block:SearchResults}
-                <div id="searchresults"><h3>{lang:Found SearchResultCount results for SearchQuery}</h3><br /></div>
-                {/block:SearchResults}
-                {block:NoSearchResults}
-                <div id="searchresults"><h3>{lang:Sorry no results for SearchQuery}</h3></div>
-                {/block:NoSearchResults}
-                {/block:SearchPage}
-
-
-            </div> <!-- /.blog-posts -->
-            {block:Pagination}
-            <ul class="pager" style="display:none;">
-                {block:NextPage}
-                <li><a href="{NextPage}" class="nextpage">{lang:Older posts}</a></li>{/block:NextPage}
-                {block:PreviousPage}
-                <li><a href="{PreviousPage}">{lang:Newer posts}</a></li>{/block:PreviousPage}
-            </ul>
-            {/block:Pagination}
-
-            {block:PermalinkPagination}
-            <ul class="pager" style="display:none;">
-                {block:PreviousPost}
-                <li><a rel="prev" href="{PreviousPost}">{lang:Previous post}</a></li>{/block:PreviousPost}
-                {block:NextPost}
-                <li><a rel="next" href="{NextPost}" class="nextpage">{lang:Next post}</a></li>{/block:NextPost}
-            </ul>
-            {/block:PermalinkPagination}
-
-        </div> <!-- /.row -->
+                    {block:SearchPage}
+                    {block:SearchResults}
+                    <div id="searchresults"><h3>{lang:Found SearchResultCount results for SearchQuery}</h3><br /></div>
+                    {/block:SearchResults}
+                    {block:NoSearchResults}
+                    <div id="searchresults"><h3>{lang:Sorry no results for SearchQuery}</h3></div>
+                    {/block:NoSearchResults}
+                    {/block:SearchPage}
 
 
-        <div class="
-             {block:IfGridLayout}
-             {block:IndexPage}
-             hidden
-             {/block:IndexPage}
-        {block:PermalinkPage}
-        {block:IfShowSidebaronLeft}
-        col-sm-pull-8
-        {/block:IfShowSidebaronLeft}
-        col-sm-4 blog-sidebar
-        {/block:PermalinkPage}
-        {/block:IfGridLayout}
+                </div> <!-- /.blog-posts -->
+                {block:Pagination}
+                <ul class="pager" style="display:none;">
+                    {block:NextPage}
+                    <li><a href="{NextPage}" class="nextpage">{lang:Older posts}</a></li>{/block:NextPage}
+                    {block:PreviousPage}
+                    <li><a href="{PreviousPage}">{lang:Newer posts}</a></li>{/block:PreviousPage}
+                </ul>
+                {/block:Pagination}
 
-        {block:IfNotGridLayout}
-        col-sm-4 blog-sidebar
-        {block:IfShowSidebaronLeft}
-        col-sm-pull-8
-        {/block:IfShowSidebaronLeft}
-        {/block:IfNotGridLayout}
-        ">
+                {block:PermalinkPagination}
+                <ul class="pager" style="display:none;">
+                    {block:PreviousPost}
+                    <li><a rel="prev" href="{PreviousPost}">{lang:Previous post}</a></li>{/block:PreviousPost}
+                    {block:NextPost}
+                    <li><a rel="next" href="{NextPost}" class="nextpage">{lang:Next post}</a></li>{/block:NextPost}
+                </ul>
+                {/block:PermalinkPagination}
 
-        {block:IfShowSearchBox}
-        <div class="sidebar-module">
-            <form action="/search" method="get" id="search-form">
-                <input type="hidden" name="t" value="{Name}" />
-                <input type="hidden" name="scope" value="all_of_tumblr" />
-                <input type="text" name="q" class="query form-control" value="{SearchQuery}" placeholder="{lang:Search}" />
-            </form>
-        </div>
-        {/block:IfShowSearchBox}
+            </div> <!-- /.row -->
 
-        {block:IfShowFlickrPhotos}
-        {block:IfFlickrUserID}
-        <div class="sidebar-module">
-            <h4>Flickr {lang:Photos}</h4>
-            <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&amp;display=latest&amp;size=m&amp;layout=x&amp;source=user&amp;user={text:Flickr User ID}"></script>
-        </div>
-        {/block:IfFlickrUserID}
-        {/block:IfShowFlickrPhotos}
 
-        {block:IfShowInstagramPhotos}
-        {block:IfInstagramAccessToken}
-        {block:IfInstagramUserID}
-        <div class="sidebar-module">
-            <h4>Instagram {lang:Photos}</h4>
-            <div id="instafeed"></div>
-        </div>
-        {/block:IfInstagramUserID}
-        {/block:IfInstagramAccessToken}
-        {/block:IfShowInstagramPhotos}
+            <div class="
+                 {block:IfGridLayout}
+                 {block:IndexPage}
+                 hidden
+                 {/block:IndexPage}
+            {block:PermalinkPage}
+            {block:IfShowSidebaronLeft}
+            col-sm-pull-8
+            {/block:IfShowSidebaronLeft}
+            col-sm-4 blog-sidebar
+            {/block:PermalinkPage}
+            {/block:IfGridLayout}
 
-        {block:IfShowLatestPinterestPins}
-        {block:IfPinterestUsername}
-        <div class="sidebar-module">
-            <h4>Pinterest</h4>
-            <a data-pin-do="embedUser" href="http://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
-            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-        </div>
-        {/block:IfPinterestUsername}
-        {/block:IfShowLatestPinterestPins}
+            {block:IfNotGridLayout}
+            col-sm-4 blog-sidebar
+            {block:IfShowSidebaronLeft}
+            col-sm-pull-8
+            {/block:IfShowSidebaronLeft}
+            {/block:IfNotGridLayout}
+            ">
 
-        {block:IfShowLatestTweets}
-        {block:IfTwitterUsername}
-        <div class="sidebar-module" id="twitter" style="display:none;">
-            <h4>{lang:Latest Tweets}</h4>
-            <div id="tweets"></div>
-        </div>
-        <script type="text/javascript">
+            {block:IfShowSearchBox}
+            <div class="sidebar-module">
+                <form action="/search" method="get" id="search-form">
+                    <input type="hidden" name="t" value="{Name}" />
+                    <input type="hidden" name="scope" value="all_of_tumblr" />
+                    <input type="text" name="q" class="query form-control" value="{SearchQuery}" placeholder="{lang:Search}" />
+                </form>
+            </div>
+            {/block:IfShowSearchBox}
+
+            {block:IfShowFlickrPhotos}
+            {block:IfFlickrUserID}
+            <div class="sidebar-module">
+                <h4>Flickr {lang:Photos}</h4>
+                <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&amp;display=latest&amp;size=m&amp;layout=x&amp;source=user&amp;user={text:Flickr User ID}"></script>
+            </div>
+            {/block:IfFlickrUserID}
+            {/block:IfShowFlickrPhotos}
+
+            {block:IfShowInstagramPhotos}
+            {block:IfInstagramAccessToken}
+            {block:IfInstagramUserID}
+            <div class="sidebar-module">
+                <h4>Instagram {lang:Photos}</h4>
+                <div id="instafeed"></div>
+            </div>
+            {/block:IfInstagramUserID}
+            {/block:IfInstagramAccessToken}
+            {/block:IfShowInstagramPhotos}
+
+            {block:IfShowLatestPinterestPins}
+            {block:IfPinterestUsername}
+            <div class="sidebar-module">
+                <h4>Pinterest</h4>
+                <a data-pin-do="embedUser" href="http://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
+                <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+            </div>
+            {/block:IfPinterestUsername}
+            {/block:IfShowLatestPinterestPins}
+
+            {block:IfShowLatestTweets}
+            {block:IfTwitterUsername}
+            <div class="sidebar-module" id="twitter" style="display:none;">
+                <h4>{lang:Latest Tweets}</h4>
+                <div id="tweets"></div>
+            </div>
+            <script type="text/javascript">
                 function recent_tweets(data) {
                   for (i=0; i<5; i++) {
                     var inputText = data[i].text;
@@ -673,35 +660,35 @@
                   }
                   document.getElementById("twitter").style.display = 'block';
                 }
-        </script>
-        {/block:IfTwitterUsername}
-        {/block:IfShowLatestTweets}
+            </script>
+            {/block:IfTwitterUsername}
+            {/block:IfShowLatestTweets}
 
-        {block:IfShowFollowing}
-        {block:Following}
-        <div class="sidebar-module">
-            <h4>{lang:Following}</h4>
-            <ul class="following">
-                {block:Followed}
-                <li><img src="{FollowedPortraitURL-24}" alt="{FollowedTitle}" /> <a href="{FollowedURL}">{FollowedTitle}</a></li>
-                {/block:Followed}
-            </ul>
+            {block:IfShowFollowing}
+            {block:Following}
+            <div class="sidebar-module">
+                <h4>{lang:Following}</h4>
+                <ul class="following">
+                    {block:Followed}
+                    <li><img src="{FollowedPortraitURL-24}" alt="{FollowedTitle}" /> <a href="{FollowedURL}">{FollowedTitle}</a></li>
+                    {/block:Followed}
+                </ul>
+            </div>
+            {/block:Following}
+            {/block:IfShowFollowing}
+
+            {block:Likes}
+            <div class="sidebar-module">
+                <h4>{lang:Liked posts}</h4>
+                {Likes limit="5" summarize="100" width="150"}
+                <a href="http://www.tumblr.com/liked/by/{Name}">
+                    {lang:See more}
+                </a>
+            </div>
+            {/block:Likes}
+
+
         </div>
-        {/block:Following}
-        {/block:IfShowFollowing}
-
-        {block:Likes}
-        <div class="sidebar-module">
-            <h4>{lang:Liked posts}</h4>
-            {Likes limit="5" summarize="100" width="150"}
-            <a href="http://www.tumblr.com/liked/by/{Name}">
-                {lang:See more}
-            </a>
-        </div>
-        {/block:Likes}
-
-
-    </div>
 
     </div><!-- /.blog-sidebar -->
 
