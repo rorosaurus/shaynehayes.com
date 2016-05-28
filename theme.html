@@ -521,10 +521,41 @@
                             </div>
                         </div>
 
+
+                        <div class="footer {block:ContentSource}with_source_url{/block:ContentSource}" style="
+                             display:none;
+                             {block:HasTags}display:block;{/block:HasTags}
+                        {block:ContentSource}display:block;{/block:ContentSource}
+                        {block:IndexPage}{block:IfGridLayout}display:none;{/block:IfGridLayout}{/block:IndexPage}
+                        ">
+                        {block:HasTags}<div class="tags">{block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}</div>{/block:HasTags}
+                    </div>
+
+
                     {block:PostNotes}<div class="notecontainer">{PostNotes}</div>{/block:PostNotes}
                 </div>
                 {/block:Posts}
 
+                {block:PermalinkPage}
+                {block:IfEnableDisqusComments}
+                {block:IfDisqusShortname}
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = '{text:Disqus Shortname}';
+                    var disqus_url = '{Permalink}';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                {/block:IfDisqusShortname}
+                {/block:IfEnableDisqusComments}
+                {block:IfEnableFacebookComments}
+                <div class="fb-comments" data-href="{Permalink}" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+                {/block:IfEnableFacebookComments}
+                {/block:PermalinkPage}
 
                 {block:SearchPage}
                 {block:SearchResults}
@@ -589,8 +620,6 @@
         </div>
         {/block:IfShowSearchBox}
 
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/229115756&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-
         {block:IfShowFlickrPhotos}
         {block:IfFlickrUserID}
         <div class="sidebar-module">
@@ -611,13 +640,74 @@
         {/block:IfInstagramAccessToken}
         {/block:IfShowInstagramPhotos}
 
+        {block:IfShowLatestPinterestPins}
+        {block:IfPinterestUsername}
+        <div class="sidebar-module">
+            <h4>Pinterest</h4>
+            <a data-pin-do="embedUser" href="http://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
+            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+        </div>
+        {/block:IfPinterestUsername}
+        {/block:IfShowLatestPinterestPins}
+
+        {block:IfShowLatestTweets}
+        {block:IfTwitterUsername}
+        <div class="sidebar-module" id="twitter" style="display:none;">
+            <h4>{lang:Latest Tweets}</h4>
+            <div id="tweets"></div>
+        </div>
+        <script type="text/javascript">
+                function recent_tweets(data) {
+                  for (i=0; i<5; i++) {
+                    var inputText = data[i].text;
+                    var replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+                    var replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
+                    var replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+                    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+                    var replacePattern3 = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/gim;
+                    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
+                    document.getElementById("tweets").innerHTML =
+                        document.getElementById("tweets").innerHTML +
+                        '<div class="tweet">'+ replacedText + '<a href="http://twitter.com/{text:Twitter Username}/status/' +(data[i].id_str ? data[i].id_str : data[i].id) +'">' +
+                        ' # </a></div>';
+                  }
+                  document.getElementById("twitter").style.display = 'block';
+                }
+        </script>
+        {/block:IfTwitterUsername}
+        {/block:IfShowLatestTweets}
+
+        {block:IfShowFollowing}
+        {block:Following}
+        <div class="sidebar-module">
+            <h4>{lang:Following}</h4>
+            <ul class="following">
+                {block:Followed}
+                <li><img src="{FollowedPortraitURL-24}" alt="{FollowedTitle}" /> <a href="{FollowedURL}">{FollowedTitle}</a></li>
+                {/block:Followed}
+            </ul>
+        </div>
+        {/block:Following}
+        {/block:IfShowFollowing}
+
+        {block:Likes}
+        <div class="sidebar-module">
+            <h4>{lang:Liked posts}</h4>
+            {Likes limit="5" summarize="100" width="150"}
+            <a href="http://www.tumblr.com/liked/by/{Name}">
+                {lang:See more}
+            </a>
+        </div>
+        {/block:Likes}
+
+
     </div>
 
     </div><!-- /.blog-sidebar -->
 
     <div class="blog-footer col-sm-12">
         <p>
-            &copy; {CopyrightYears} {Title}
+            &copy; {CopyrightYears} {Title} <span class="slash"> / </span> <a href="http://themelantic.com">Premium Tumblr Themes by Themelantic</a> <span class="slash"> / </span> <a href="http://www.tumblr.com">{lang:Powered by Tumblr}</a>
             <span class="backtotop-button">
                 <a href="#"><img src="http://static.tumblr.com/m2fs62i/by8nd86li/backtotop.png" alt="Back to Top" /></a>
             </span>
@@ -668,6 +758,32 @@
     })
     </script>
 
+    {block:IfEnableKeyboardNavigation}
+    {block:Pagination}
+    <script>
+          {block:PreviousPage}Mousetrap.bind('left', function() { window.location.href="{PreviousPage}"; });{/block:PreviousPage}
+          {block:NextPage}Mousetrap.bind('right', function() { window.location.href="{NextPage}"; });{/block:NextPage}
+    </script>
+    {/block:Pagination}
+    {block:PermalinkPagination}
+    <script>
+          {block:PreviousPost}Mousetrap.bind('left', function() { window.location.href="{PreviousPost}"; });{/block:PreviousPost}
+          {block:NextPost}Mousetrap.bind('right', function() { window.location.href="{NextPost}"; });{/block:NextPost}
+    </script>
+    {/block:PermalinkPagination}
+    <script>
+        Mousetrap.bind('h', function() { window.location.href="/"; });
+        Mousetrap.bind('r', function() { window.location.href="/random"; });
+    </script>
+    {/block:IfEnableKeyboardNavigation}
+
+    {block:IfShowLatestTweets}
+    {block:IfTwitterUsername}
+    <!-- Load Twitter Widget -->
+    <script type="text/javascript" src="/tweets.js"></script>
+    {/block:IfTwitterUsername}
+    {/block:IfShowLatestTweets}
+
     {block:IfShowInstagramPhotos}
     {block:IfInstagramAccessToken}
     {block:IfInstagramUserID}
@@ -685,6 +801,21 @@
     {/block:IfInstagramUserID}
     {/block:IfInstagramAccessToken}
     {/block:IfShowInstagramPhotos}
+
+    {block:IfEnableFacebookComments}
+    {block:PermalinkPage}
+    <!-- Load Facebook Comments -->
+    <div id="fb-root"></div>
+    <script>
+(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;appId=1455146204772386&amp;version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    {/block:PermalinkPage}
+    {/block:IfEnableFacebookComments}
 
     {block:IfGoogleAnalyticsID}
     <!-- Load Google Analytics -->
