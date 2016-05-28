@@ -671,67 +671,6 @@
         {/block:IfInstagramAccessToken}
         {/block:IfShowInstagramPhotos}
 
-        {block:IfShowLatestPinterestPins}
-        {block:IfPinterestUsername}
-        <div class="sidebar-module">
-            <h4>Pinterest</h4>
-            <a data-pin-do="embedUser" href="http://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
-            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-        </div>
-        {/block:IfPinterestUsername}
-        {/block:IfShowLatestPinterestPins}
-
-        {block:IfShowLatestTweets}
-        {block:IfTwitterUsername}
-        <div class="sidebar-module" id="twitter" style="display:none;">
-            <h4>{lang:Latest Tweets}</h4>
-            <div id="tweets"></div>
-        </div>
-        <script type="text/javascript">
-                function recent_tweets(data) {
-                  for (i=0; i<5; i++) {
-                    var inputText = data[i].text;
-                    var replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-                    var replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
-                    var replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-                    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
-                    var replacePattern3 = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/gim;
-                    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
-                    document.getElementById("tweets").innerHTML =
-                        document.getElementById("tweets").innerHTML +
-                        '<div class="tweet">'+ replacedText + '<a href="http://twitter.com/{text:Twitter Username}/status/' +(data[i].id_str ? data[i].id_str : data[i].id) +'">' +
-                        ' # </a></div>';
-                  }
-                  document.getElementById("twitter").style.display = 'block';
-                }
-        </script>
-        {/block:IfTwitterUsername}
-        {/block:IfShowLatestTweets}
-
-        {block:IfShowFollowing}
-        {block:Following}
-        <div class="sidebar-module">
-            <h4>{lang:Following}</h4>
-            <ul class="following">
-                {block:Followed}
-                <li><img src="{FollowedPortraitURL-24}" alt="{FollowedTitle}" /> <a href="{FollowedURL}">{FollowedTitle}</a></li>
-                {/block:Followed}
-            </ul>
-        </div>
-        {/block:Following}
-        {/block:IfShowFollowing}
-
-        {block:Likes}
-        <div class="sidebar-module">
-            <h4>{lang:Liked posts}</h4>
-            {Likes limit="5" summarize="100" width="150"}
-            <a href="http://www.tumblr.com/liked/by/{Name}">
-                {lang:See more}
-            </a>
-        </div>
-        {/block:Likes}
-
-
     </div>
 
     </div><!-- /.blog-sidebar -->
