@@ -8,7 +8,7 @@
                                                   
     Elemental v2.1
     Updated: 2 December, 2015
-    Website: http://themelantic.com
+    Website: https://themelantic.com
     Copyright 2015 Themelantic. All rights reserved.
 
   ==========================================================================
@@ -26,19 +26,19 @@
     {/block:Description}
 
     <!-- Bootstrap core CSS -->
-    <link href="http://static.tumblr.com/m2fs62i/EIpnd863h/bootstrap.min.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/m2fs62i/EIpnd863h/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://static.tumblr.com/n3p2fdg/23bnlazd2/icons.css" rel="stylesheet">
-    <link href="http://static.tumblr.com/m2fs62i/rFgnyqd7v/elemental.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/n3p2fdg/23bnlazd2/icons.css" rel="stylesheet">
+    <link href="https://static.tumblr.com/yfckb6b/oFSqollny/elemental.css" rel="stylesheet">
 
     <!-- Load jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="http://static.tumblr.com/m2fs62i/xnYnd86bl/html5shiv.min.js"></script>
-      <script src="http://static.tumblr.com/m2fs62i/nvFnd86b7/respond.min.js"></script>
+      <script src="https://static.tumblr.com/m2fs62i/xnYnd86bl/html5shiv.min.js"></script>
+      <script src="https://static.tumblr.com/m2fs62i/nvFnd86b7/respond.min.js"></script>
     <![endif]-->
 
     {block:Hidden}
@@ -67,7 +67,7 @@
       <meta name="if:Show Instagram Photos" content="0"/>
       <meta name="if:Show Flickr Photos" content="0"/>
       <meta name="if:Show Following" content="0"/>
-      <meta name="if:Show RSS Link" content="1"/>
+      <meta name="if:Show RSS Link" content="0"/>
       <meta name="if:Show Random Link" content="1"/>
       <meta name="if:Show Archive Link" content="1"/>
 
@@ -108,13 +108,13 @@
 
     <!-- Load Google Web Fonts -->
     {block:IfHeadingGoogleWebFont}
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family={text:Heading Google Web Font}:200,400,700">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={text:Heading Google Web Font}:200,400,700">
     {/block:IfHeadingGoogleWebFont}
     {block:IfBodyGoogleWebFont}
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family={text:Body Google Web Font}:400,400italic,700,700italic">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={text:Body Google Web Font}:400,400italic,700,700italic">
     {/block:IfBodyGoogleWebFont}
     {block:IfLogoGoogleWebFont}
-      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family={text:Logo Google Web Font}:400,400italic,700,700italic">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={text:Logo Google Web Font}:400,400italic,700,700italic">
     {/block:IfLogoGoogleWebFont}
 
     <!-- Custom Styles -->
@@ -123,7 +123,9 @@
       /* Colors */
 
       body {
-        background: {BackgroundColor};
+        background: url(https://static.tumblr.com/yfckb6b/AWrqoljbg/astral_drift_background.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
         color:{color:Body Text Color};
         {block:IfBodyGoogleWebFont}font-family: "{text:Body Google Web Font}";{/block:IfBodyGoogleWebFont}
       }
@@ -209,8 +211,10 @@
   </head>
 
   <body>
-
-
+    
+    <div id="videoDiv">
+      <video autoplay muted loop id="myVideo"><source src="https://github.com/rorosaurus/shaynehayes.com/raw/master/website-loop.mp4" type="video/mp4"></video>
+    </div>
     <div class="container">
 
       <div class="row">
@@ -247,20 +251,20 @@
             <p class="lead blog-description">{Description}</p>
           {/block:Description}
           {block:IfShowSocialButtons}
-            {block:IfGitHubUsername}<a href="http://github.com/{text:GitHub Username}" class="icon-github"></a>{/block:IfGitHubUsername}
-            {block:IfTwitterUsername}<a href="http://twitter.com/{text:Twitter Username}" class="icon-twitter"></a>{/block:IfTwitterUsername}
+            {block:IfGitHubUsername}<a href="https://github.com/{text:GitHub Username}" class="icon-github"></a>{/block:IfGitHubUsername}
+            {block:IfTwitterUsername}<a href="https://twitter.com/{text:Twitter Username}" class="icon-twitter"></a>{/block:IfTwitterUsername}
             {block:IfFacebookUsername}<a href="https://www.facebook.com/{text:Facebook Username}" class="icon-facebook"></a>{/block:IfFacebookUsername}
             {block:IfGooglePlusURL}<a href="{text:Google Plus URL}" class="icon-googleplus"></a>{/block:IfGooglePlusURL}
             {block:IfFlickrUserID}<a href="https://www.flickr.com/photos/{text:Flickr User ID}" class="icon-flickr"></a>{/block:IfFlickrUserID}
             {block:IfVimeoUsername}<a href="https://vimeo.com/{text:Vimeo Username}" class="icon-vimeo"></a>{/block:IfVimeoUsername}
-            {block:IfPinterestUsername}<a href="http://www.pinterest.com/{text:Pinterest Username}" class="icon-pinterest"></a>{/block:IfPinterestUsername}
-            {block:IfLinkedInUsername}<a href="http://linkedin.com/in/{text:LinkedIn Username}/" class="icon-linkedin"></a>{/block:IfLinkedInUsername}
+            {block:IfPinterestUsername}<a href="https://www.pinterest.com/{text:Pinterest Username}" class="icon-pinterest"></a>{/block:IfPinterestUsername}
+            {block:IfLinkedInUsername}<a href="https://linkedin.com/in/{text:LinkedIn Username}/" class="icon-linkedin"></a>{/block:IfLinkedInUsername}
             {block:IfDribbbleUsername}<a href="https://dribbble.com/{text:Dribbble Username}" class="icon-dribbble"></a>{/block:IfDribbbleUsername}
-            {block:IfLastfmUsername}<a href="http://www.last.fm/user/{text:Last.fm Username}" class="icon-lastfm"></a>{/block:IfLastfmUsername}
-            {block:IfInstagramUsername}<a href="http://instagram.com/{text:Instagram Username}" class="icon-instagram"></a>{/block:IfInstagramUsername}
+            {block:IfLastfmUsername}<a href="https://www.last.fm/user/{text:Last.fm Username}" class="icon-lastfm"></a>{/block:IfLastfmUsername}
+            {block:IfInstagramUsername}<a href="https://instagram.com/{text:Instagram Username}" class="icon-instagram"></a>{/block:IfInstagramUsername}
             {block:IfSkypeUsername}<a href="skype:{text:Skype Username}?chat" class="icon-skype"></a>{/block:IfSkypeUsername}
             {block:IfSoundCloudUsername}<a href="https://soundcloud.com/{text:SoundCloud Username}" class="icon-soundcloud"></a>{/block:IfSoundCloudUsername}
-            <a href="http://collectivecontrast.bandcamp.com" class="icon-bandcamp" style="margin-right:8px;"><img src="http://static.tumblr.com/yfckb6b/1EXo7wnrv/bandcamp-button-circle-line-white-64.png" alt="Bandcamp Link" width="20px" height="20px" style="vertical-align:text-bottom;"></a>
+            <a href="https://collectivecontrast.bandcamp.com" class="icon-bandcamp" style="margin-right:8px;"><img src="https://static.tumblr.com/yfckb6b/1EXo7wnrv/bandcamp-button-circle-line-white-64.png" alt="Bandcamp Link" width="20px" height="20px" style="vertical-align:text-bottom;"></a>
             {block:If500pxUsername}<a href="https://500px.com/{text:500px Username}" class="icon-500px"></a>{/block:If500pxUsername}
             {block:IfRedditURL}<a href="{text:Reddit URL}" class="icon-reddit"></a>{/block:IfRedditURL}
             {block:IfStackOverflowURL}<a href="{text:Stack Overflow URL}" class="icon-stackoverflow"></a>{/block:IfStackOverflowURL}
@@ -271,7 +275,7 @@
             {block:IfPicasaURL}<a href="{text:Picasa URL}" class="icon-picassa"></a>{/block:IfPicasaURL}
             {block:IfStoreURL}<a href="{text:Store URL}" class="icon-cart"></a>{/block:IfStoreURL}
             {block:IfEmailAddress}<a href="{text:Email Address}" class="icon-envelope"></a>{/block:IfEmailAddress}
-            {block:IfShowRSSLink}<a href="{RSS}" title="{lang:RSS}" class="icon-rss"></a>{/block:IfShowRSSLink}
+            <!--{block:IfShowRSSLink}<a href="{RSS}" title="{lang:RSS}" class="icon-rss"></a>{/block:IfShowRSSLink}-->
           {/block:IfShowSocialButtons}
         </div>
 
@@ -501,7 +505,7 @@
           {block:IfFlickrUserID}
             <div class="sidebar-module">
               <h4>Flickr {lang:Photos}</h4>
-              <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&amp;display=latest&amp;size=m&amp;layout=x&amp;source=user&amp;user={text:Flickr User ID}"></script>
+              <script type="text/javascript" src="https://www.flickr.com/badge_code_v2.gne?count=4&amp;display=latest&amp;size=m&amp;layout=x&amp;source=user&amp;user={text:Flickr User ID}"></script>
             </div>
           {/block:IfFlickrUserID}
         {/block:IfShowFlickrPhotos}
@@ -511,7 +515,8 @@
             {block:IfInstagramUserID}
               <div class="sidebar-module">
                 <h4>Instagram {lang:Photos}</h4>
-                <div id="instafeed"></div>
+                <!--<div id="instafeed"></div>-->
+                <div class="taggbox-container" style=" width:100%;height:100%;overflow: auto;"><div class="taggbox-socialwall" data-wall-id="49059" view-url="https://widget.taggbox.com/49059">  </div><script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script></div>
               </div>
             {/block:IfInstagramUserID}
           {/block:IfInstagramAccessToken}
@@ -521,7 +526,7 @@
           {block:IfPinterestUsername}
             <div class="sidebar-module">
               <h4>Pinterest</h4>
-              <a data-pin-do="embedUser" href="http://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
+              <a data-pin-do="embedUser" href="https://www.pinterest.com/{text:Pinterest Username}/" data-pin-scale-width="60" data-pin-scale-height="250" data-pin-board-width="260">Follow {text:Pinterest Username} on Pinterest.</a>
               <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
             </div>  
           {/block:IfPinterestUsername}
@@ -540,12 +545,12 @@
                     var replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
                     var replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
                     var replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-                    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+                    replacedText = replacedText.replace(replacePattern2, '$1<a href="https://$2" target="_blank">$2</a>');
                     var replacePattern3 = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/gim;
                     replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
                     document.getElementById("tweets").innerHTML =
                         document.getElementById("tweets").innerHTML +
-                        '<div class="tweet">'+ replacedText + '<a href="http://twitter.com/{text:Twitter Username}/status/' +(data[i].id_str ? data[i].id_str : data[i].id) +'">' +
+                        '<div class="tweet">'+ replacedText + '<a href="https://twitter.com/{text:Twitter Username}/status/' +(data[i].id_str ? data[i].id_str : data[i].id) +'">' +
                         ' # </a></div>';
                   }
                   document.getElementById("twitter").style.display = 'block';
@@ -567,15 +572,15 @@
           {/block:Following}
         {/block:IfShowFollowing}
 
-        {block:Likes}
-          <div class="sidebar-module">
-            <h4>{lang:Liked posts}</h4>
-            {Likes limit="5" summarize="100" width="150"}
-            <a href="http://www.tumblr.com/liked/by/{Name}">
-              {lang:See more}
-            </a>
-          </div>
-        {/block:Likes}
+        <!--{block:Likes}-->
+        <!--  <div class="sidebar-module">-->
+        <!--    <h4>{lang:Liked posts}</h4>-->
+        <!--    {Likes limit="5" summarize="100" width="150"}-->
+        <!--    <a href="https://www.tumblr.com/liked/by/{Name}">-->
+        <!--      {lang:See more}-->
+        <!--    </a>-->
+        <!--  </div>-->
+        <!--{/block:Likes}-->
 
 
         </div>
@@ -585,14 +590,14 @@
       <div class="blog-footer col-sm-12">
         <p>&copy; {CopyrightYears} {Title}
         <span class="backtotop-button">
-          <a href="#"><img src="http://static.tumblr.com/m2fs62i/by8nd86li/backtotop.png" alt="Back to Top" /></a>
+          <a href="#"><img src="https://static.tumblr.com/m2fs62i/by8nd86li/backtotop.png" alt="Back to Top" /></a>
         </span></p>
       </div>
 
     </div><!-- /.row -->
 
     <!-- Load Themelantic JS -->
-    <script src="http://static.tumblr.com/xdfupan/wtRnlgd22/themelantic.js" type="text/javascript"></script>
+    <script src="https://static.tumblr.com/xdfupan/wtRnlgd22/themelantic.js" type="text/javascript"></script>
 
 
     <!-- Show loading spinner as we pull in page content -->
@@ -664,16 +669,16 @@
       {block:IfInstagramAccessToken}
         {block:IfInstagramUserID}
           <!-- Load Instagram Widget -->
-          <script>
-            var feed = new Instafeed({
-                get: 'user',
-                clientId: '91178e5ab42c42ebbf19ce155142a94b',
-                accessToken: '{text:Instagram Access Token}',
-                userId: {text:Instagram User ID},
-                limit: '12'
-            });
-            feed.run();
-          </script>
+        //   <script>
+        //     var feed = new Instafeed({
+        //         get: 'user',
+        //         clientId: '91178e5ab42c42ebbf19ce155142a94b',
+        //         accessToken: '{text:Instagram Access Token}',
+        //         userId: {text:Instagram User ID},
+        //         limit: '12'
+        //     });
+        //     feed.run();
+        //   </script>
         {/block:IfInstagramUserID}
       {/block:IfInstagramAccessToken}
     {/block:IfShowInstagramPhotos}
